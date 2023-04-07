@@ -1,0 +1,47 @@
+<div>
+  <form [formGroup]="formulario" (ngSubmit)="calcularCotizacion()">
+    <div class="my-5">
+      <label class='block mb-3 font-bold uppercase text-gray-400'>
+        Seleccione la marca
+        </label>
+        <select  name='marca' class='w-full p-3 bg-white border border-gray-200' formControlName="marca">
+          <option value="0">Seleccione</option>
+          <option *ngFor="let m of marcas;let i=index"[value]=m.id>{{m.nombre}}</option>
+        </select>
+    </div>
+
+    <div class="my-5">
+      <label class='block mb-3 font-bold uppercase text-gray-400'>
+        Seleccione el año
+        </label>
+        <select  name='marca' class='w-full p-3 bg-white border border-gray-200' formControlName="year">
+          <option value="0">Seleccione</option>
+          <option *ngFor="let y of years;" value={{y}}>{{y}}</option>
+        </select>
+    </div>
+
+
+    <div class="my-5">
+      <label class='block mb-3 font-bold uppercase text-gray-400'>
+       Elige un plan
+        </label>
+        <div class='flex gap-3 text-center'>
+            <div *ngFor="let p of planes;let i=index">
+                <label>{{p.nombre}}</label>
+                <input type="radio" name="plan" value={{p.id}} formControlName="plan"/>
+            </div>
+
+        </div>
+    </div>
+    <input type='submit' value="Cotizar" class='w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white
+    cursor-pointer p-3 uppercase font-bold'/>
+  </form>
+
+</div>
+
+<!--MOSTRAR RESULTADOS-->
+
+
+
+
+
